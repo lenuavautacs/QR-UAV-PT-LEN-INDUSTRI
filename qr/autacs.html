@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AUTACS- Video Dokumentasi Produk</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --lg-bg-color: rgba(255,255,255,0.32);
+  --lg-border: rgba(255,255,255,0.40);
+  --lg-highlight: rgba(255,255,255,0.90);
+  --text-black: #000000;
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+
+  background-image:url("uav-ui-portrait.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+@media (orientation: landscape){
+  body{
+    background-image:url("uav-ui-landscape.jpg");
+  }
+}
+a, a:visited, a:hover, a:active{
+  color: #000000;
+  text-decoration: none;
+}
+.page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:28px 16px;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  border-radius:22px;
+  padding:22px 18px 140px;
+  position:relative;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.28),
+    rgba(255,255,255,0.10)
+  );
+
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  border:1px solid rgba(255,255,255,0.45);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.40),
+    inset 0 1px 1px rgba(255,255,255,.70);
+
+  overflow:hidden;
+  animation:slideIn .25s ease;
+}
+
+.hero{
+  height:190px;
+  border-radius:18px;
+  margin-bottom:20px;
+  background:url("produk-a.jpg") center/cover no-repeat;
+}
+
+.breadcrumb-bar{
+  width:100%;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:center;
+}
+
+.breadcrumb-long{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:999px;
+
+  background:rgba(255,255,255,0.90);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--lg-border);
+
+  box-shadow:0 10px 32px rgba(0,0,0,.22);
+
+  color:var(--text-black);
+
+  font-size:15px;
+  font-weight:600;
+
+  width:100%;
+  max-width:380px;
+  text-align:center;
+}
+
+.video-area{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.video-card{
+  border-radius:18px;
+  background:#2f2f2f;
+  padding:12px;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
+}
+
+iframe{
+  width:100%;
+  height:210px;
+  border-radius:18px;
+  border:none;
+}
+
+/* DESKRIPSI */
+.desc-panel{
+  margin-top:18px;
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border:1px solid var(--lg-border);
+  box-shadow:0 10px 24px rgba(0,0,0,.2);
+  font-size:15px;
+  line-height:1.65;
+  color:#000;
+}
+
+.desc-panel p{
+  margin:0 0 14px;
+  text-align:justify;
+}
+
+/* 🔑 AUTACS INLINE TEXT */
+.AUTACS-inline{
+  font-weight:800;
+  color:var(--KUMBANG-blue);
+  letter-spacing:0.5px;
+  white-space:nowrap;
+}
+.back-btn{
+  position:absolute;
+  left:18px;
+  bottom:22px;
+
+  padding:10px 20px;
+
+  border-radius:999px;
+  background:var(--lg-bg-color);
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  border:1px solid var(--lg-border);
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,.25),
+    inset 1px 1px 0 var(--lg-highlight);
+
+  color:#000000 !important;
+
+  text-decoration:none;
+  font-weight:600;
+  cursor:pointer;
+}
+.AUTACS-inline{
+  max-width:140px;
+  vertical-align:middle;
+  margin-right:10px;
+}
+@keyframes slideIn{
+  from{ transform:translateX(20px); opacity:0; }
+  to{ transform:translateX(0); opacity:1; }
+}
+
+@keyframes slideOut{
+  to{ transform:translateX(-20px); opacity:0; }
+}
+
+.slide-out{
+  animation:slideOut .2s ease forwards;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+  <div class="card" id="card">
+
+    <div class="breadcrumb-bar">
+      <div class="breadcrumb-long">
+        <a href="index.html" onclick="go(this.href);return false;">Home</a> › 
+        <a href="menu-b.html" onclick="go(this.href);return false;">Video Dokumentasi Produk</a> › 
+        <b>AUTACS</b>
+      </div>
+    </div>
+
+    <div class="hero"></div>
+
+    <div class="video-area">
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/Oo_RCBv5Bxo" allowfullscreen></iframe>
+      </div>
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/zVGEETbQpls" allowfullscreen></iframe>
+      </div>
+
+    </div>
+
+<div class="desc-panel">
+
+      <p>
+      <b>AUTACS</b><em> is an indigenous Flight Control Computer (FCC) and Ground Control System (GCS) solution for tactical UAV developed by PT. Len Industri (Persero) in collaboration with the Ministry of Defense Indonesia.</em>
+      </p>
+
+      <p>
+      <b>AUTACS</b> adalah sistem kendali komputer dan sistem kendali darat buatan dalam negeri untuk pesawat tanpa awak yang dikembangkan oleh PT. Len Industri (Persero) bekerja sama dengan Kementerian Pertahanan Indonesia.
+      </p>
+
+    </div>
+
+    <a class="back-btn" href="menu-b.html" onclick="go(this.href);return false;">← Kembali</a>
+
+  </div>
+</div>
+
+</div>
+
+<script>
+function go(url){
+  const c = document.getElementById('card');
+  c.classList.add('slide-out');
+  setTimeout(()=> location.href=url,180);
+}
+</script>
+
+</body>
+</html>

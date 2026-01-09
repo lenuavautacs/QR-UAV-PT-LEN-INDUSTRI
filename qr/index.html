@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pusat Pengembangan UAV</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+@font-face{
+  font-family:'Amuro';
+  src:url('./fonts/Amuro%20Bold%20Italic.otf') format('opentype');
+}
+
+:root{
+  --lg-bg-color: rgba(255,255,255,0.30);
+  --lg-border: rgba(255,255,255,0.42);
+  --lg-highlight: rgba(255,255,255,0.95);
+
+  /* 🔑 warna teks hitam */
+  --text-black: #000000;
+    --text-grey:#4a4a4a;
+  --autacs-blue:#3666B6;
+}
+
+/* ===== RESET ===== */
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+
+  /* 🔑 warna teks global jadi hitam */
+  color: var(--text-black);
+
+  /* ukuran dasar NORMAL */
+  font-size:16px;
+
+  background-image: url("uav-ui-portrait.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+@media (orientation: landscape){
+  body{
+    background-image: url("uav-ui-landscape.jpg");
+  }
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:36px 16px;
+}
+
+/* ===== CARD UTAMA (LIQUID GLASS BENING) ===== */
+.card{
+  width:100%;
+  max-width:420px;
+  border-radius:22px;
+  padding:36px 22px 160px;
+  position:relative;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.32),
+    rgba(255,255,255,0.12)
+  );
+
+  backdrop-filter: blur(22px) saturate(165%) brightness(1.1);
+  -webkit-backdrop-filter: blur(22px) saturate(165%) brightness(1.1);
+
+  border:1px solid rgba(255,255,255,0.48);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.40),
+    inset 0 1px 1px rgba(255,255,255,.70);
+
+  color: var(--text-black);
+
+  overflow:hidden;
+  animation:slideIn .3s ease;
+}
+
+/* efek cahaya pada card */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255,255,255,0.40),
+      transparent 60%
+    );
+  filter: blur(18px);
+  transform:rotate(10deg);
+  pointer-events:none;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255,255,255,.15),
+      transparent 70%
+    );
+  opacity:.5;
+  pointer-events:none;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  margin-bottom:28px;
+  color: var(--text-grey);
+  line-height:1.6;
+}
+
+/* 🔑 INI BAGIAN TEKS YANG DIPERBESAR */
+.header h3{
+  font-size:26px;
+  margin:10px 0 8px;
+  color:var(--text-black);
+}
+
+.header .subtitle{
+  font-size:22px;
+  color:var(--text-black);
+}
+
+/* logo */
+.logo-circle{
+  width:104px;
+  height:104px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:0 auto 16px;
+  background:white;
+}
+
+/* ===== AUTACS LOGO TEXT ===== */
+.autacs{
+  font-family:'Amuro',sans-serif;
+  color:var(--autacs-blue); /* 🔑 BIRU FIX */
+  letter-spacing:2px;
+  font-size:28px;
+}
+
+/* ===== VIDEO PANEL ===== */
+.video-wrapper{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-bottom:24px;
+}
+
+.video{
+  width:100%;
+  max-width:380px;
+  border-radius:20px;
+  overflow:hidden;
+  background:black;
+
+  border:2px solid rgba(0,0,0,0.25);
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.30);
+}
+
+.video iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  border:none;
+}
+
+/* ===== LINKS BUTTON ===== */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.link{
+  height:54px;
+  border-radius:999px;
+
+  background: var(--lg-bg-color);
+
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+
+  border:1px solid var(--lg-border);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* teks tombol tetap normal dan abu */
+  color:#000000;
+
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+
+  transition:.25s ease;
+  padding:0 24px;
+}
+
+.link:hover{
+  background: rgba(255,255,255,0.45);
+  transform: translateY(-2px);
+}
+
+.link:active{
+  transform: scale(.96);
+}
+
+
+/* ===== ANIMASI ===== */
+@keyframes slideIn{
+  from{ transform:translateX(30px); opacity:0; }
+  to{ opacity:1; }
+}
+
+.slide-out{
+  animation:slideOut .2s ease forwards;
+}
+
+@keyframes slideOut{
+  to{ transform:translateX(-30px); opacity:0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+  <div class="card" id="card">
+
+    <div class="header">
+      <img src="./logo.jpg" class="logo-circle">
+      <h3>Pusat Pengembangan UAV</h3>
+
+      <p class="subtitle">
+        Powered by <span class="autacs">AUTACS</span>
+      </p>
+    </div>
+
+    <div class="video-wrapper">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/CTheLyGWGMY" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="links">
+      <a class="link" href="menu-a.html" onclick="go(this.href);return false;">Katalog Produk</a>
+      <a class="link" href="menu-b.html" onclick="go(this.href);return false;">Video Dokumentasi</a>
+</div>
+  </div>
+</div>
+
+<script>
+function go(url){
+  const card=document.getElementById('card');
+  card.classList.add('slide-out');
+  setTimeout(()=> location.href=url,200);
+}
+</script>
+
+</body>
+</html>

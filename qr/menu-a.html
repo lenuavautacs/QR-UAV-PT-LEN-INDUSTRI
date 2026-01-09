@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Katalog Produk</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --lg-bg-color: rgba(255,255,255,0.32);
+  --lg-border: rgba(255,255,255,0.40);
+  --lg-highlight: rgba(255,255,255,0.90);
+  --text-black: #000000;
+}
+
+/* ===== RESET ===== */
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ===== BACKGROUND PORTRAIT ===== */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+
+  background-image: url("uav-ui-portrait.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* jika landscape ganti gambar */
+@media (orientation: landscape){
+  body{
+    background-image: url("uav-ui-landscape.jpg");
+  }
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:28px 16px;
+}
+
+/* ===== CARD UTAMA ===== */
+.card{
+  width:100%;
+  max-width:420px;
+  border-radius:22px;
+  padding:22px 18px 120px;
+  position:relative;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.28),
+    rgba(255,255,255,0.10)
+  );
+
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  border:1px solid rgba(255,255,255,0.45);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.40),
+    inset 0 1px 1px rgba(255,255,255,.70);
+
+  overflow:hidden;
+  animation:slideIn .25s ease;
+}
+
+/* efek cahaya glass card */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255,255,255,0.40),
+      transparent 60%
+    );
+  filter: blur(18px);
+  transform:rotate(10deg);
+  pointer-events:none;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255,255,255,.15),
+      transparent 70%
+    );
+  opacity:.5;
+  pointer-events:none;
+}
+
+/* ===== HERO IMAGE ===== */
+.hero{
+  height:190px;
+  border-radius:18px;
+  margin-bottom:20px;
+  background: url("produk-a.jpg") center/cover no-repeat;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb-bar{
+  width:100%;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:center;
+}
+
+.breadcrumb-long{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:999px;
+
+  background: rgba(255,255,255,0.90);
+
+  backdrop-filter: blur(12px) saturate(170%);
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+
+  border:1px solid var(--lg-border);
+
+  box-shadow:
+    0 10px 32px rgba(0,0,0,.22);
+
+  color: var(--text-black);
+
+  font-size:15px;
+  font-weight:600;
+
+  width:100%;
+  max-width:380px;
+  text-align:center;
+}
+
+/* link breadcrumb tetap hitam */
+.breadcrumb-long a{
+  color:#000000 !important;
+  text-decoration:none;
+}
+
+/* ===== MENU BAR LOGO JPG ===== */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.logo-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.30);
+
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+
+  border:1px solid rgba(255,255,255,.55);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.7),
+    0 10px 26px rgba(0,0,0,.25);
+
+  height:72px;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.logo-link img{
+  max-height:145px;
+  max-width:180px;
+  object-fit:contain;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:absolute;
+  left:18px;
+  bottom:calc(22px + env(safe-area-inset-bottom));
+  padding:10px 20px;
+  height:auto;
+
+  border-radius:999px;
+  background: var(--lg-bg-color);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border:1px solid var(--lg-border);
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,.25),
+    inset 1px 1px 0 var(--lg-highlight);
+
+  /* 🔑 teks hitam agar tidak ungu */
+  color:#000000 !important;
+
+  text-decoration:none;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== TRANSITION ===== */
+@keyframes slideIn{
+  from{ transform:translateX(20px); opacity:0; }
+  to{ transform:translateX(0); opacity:1; }
+}
+
+.slide-out{
+  animation:slideOut .2s ease forwards;
+}
+
+@keyframes slideOut{
+  to{ transform:translateX(-20px); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+  <div class="card" id="card">
+
+    <div class="breadcrumb-bar">
+      <div class="breadcrumb-long">
+        <a href="index.html" onclick="go(this.href);return false;">Home</a> › Katalog Produk
+      </div>
+    </div>
+
+    <div class="hero"></div>
+
+    <!-- ===== MENU LOGO MENUJU PDF ===== -->
+    <div class="links">
+
+      <a class="logo-link" href="brosur/autacs.pdf">
+        <img src="autacs.jpg" alt="AUTACS">
+      </a>
+
+      <a class="logo-link" href="brosur/aerosight.pdf">
+        <img src="aerosight.jpg" alt="AEROSIGHT">
+      </a>
+
+      <a class="logo-link" href="brosur/aerobait.pdf">
+        <img src="aerobait.jpg" alt="AEROBAIT">
+      </a>
+
+      <a class="logo-link" href="brosur/kumbang.pdf">
+        <img src="kumbang.jpg" alt="KUMBANG">
+      </a>
+
+    </div>
+    <!-- ================================ -->
+
+    <a class="back-btn" href="index.html" onclick="go(this.href);return false;">← Kembali</a>
+
+  </div>
+</div>
+
+<script>
+function go(url){
+  const c = document.getElementById('card');
+  c.classList.add('slide-out');
+  setTimeout(()=> location.href=url,180);
+}
+</script>
+
+</body>
+</html>

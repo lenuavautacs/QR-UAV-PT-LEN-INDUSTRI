@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Video Dokumentasi Produk</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --lg-bg-color: rgba(255,255,255,0.32);
+  --lg-border: rgba(255,255,255,0.40);
+  --lg-highlight: rgba(255,255,255,0.90);
+  --text-black: #000000;
+}
+
+/* ===== RESET ===== */
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background-image:url("uav-ui-portrait.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+@media (orientation: landscape){
+  body{
+    background-image:url("uav-ui-landscape.jpg");
+  }
+}
+
+/* ===== PAGE ===== */
+.page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:28px 16px;
+}
+
+/* ===== CARD ===== */
+.card{
+  width:100%;
+  max-width:420px;
+  border-radius:22px;
+  padding:22px 18px 120px;
+  position:relative;
+
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,0.28),
+    rgba(255,255,255,0.10)
+  );
+
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+
+  border:1px solid rgba(255,255,255,0.45);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.40),
+    inset 0 1px 1px rgba(255,255,255,.70);
+
+  overflow:hidden;
+  animation:slideIn .25s ease;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:190px;
+  border-radius:18px;
+  margin-bottom:20px;
+  background:url("produk-a.jpg") center/cover no-repeat;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb-bar{
+  width:100%;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:center;
+}
+
+.breadcrumb-long{
+  width:100%;
+  max-width:380px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.90);
+  backdrop-filter:blur(12px) saturate(170%);
+  border:1px solid var(--lg-border);
+  box-shadow:0 10px 32px rgba(0,0,0,.22);
+  font-size:15px;
+  font-weight:600;
+  text-align:center;
+}
+
+.breadcrumb-long a{
+  color:#000 !important;
+  text-decoration:none;
+}
+
+/* ===== MENU TEXT ===== */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.logo-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:72px;
+
+  border-radius:999px;
+  background:rgba(255,255,255,.30);
+
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+
+  border:1px solid rgba(255,255,255,.55);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.7),
+    0 10px 26px rgba(0,0,0,.25);
+
+  text-decoration:none;
+  transition:.25s ease;
+}
+
+.logo-link span{
+  font-size:16px;
+  font-weight:600;
+  color:#000;
+  letter-spacing:0.3px;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:absolute;
+  left:18px;
+  bottom:22px;
+  padding:10px 20px;
+  border-radius:999px;
+
+  background:var(--lg-bg-color);
+  backdrop-filter:blur(12px);
+
+  border:1px solid var(--lg-border);
+  box-shadow:
+    0 6px 14px rgba(0,0,0,.25),
+    inset 1px 1px 0 var(--lg-highlight);
+
+  color:#000 !important;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes slideIn{
+  from{ transform:translateX(20px); opacity:0; }
+  to{ transform:translateX(0); opacity:1; }
+}
+
+@keyframes slideOut{
+  to{ transform:translateX(-20px); opacity:0; }
+}
+
+.slide-out{
+  animation:slideOut .2s ease forwards;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+  <div class="card" id="card">
+
+    <div class="breadcrumb-bar">
+      <div class="breadcrumb-long">
+        <a href="index.html" onclick="go(this.href);return false;">Home</a> › Video Dokumentasi Produk
+      </div>
+    </div>
+
+    <div class="hero"></div>
+
+    <!-- ===== MENU TEKS ===== -->
+    <div class="links">
+<a class="logo-link" href="alur-proses-pengembangan-mission-system.html" onclick="go(this.href);return false;">
+  <span>Portofolio Pengembangan Drone</span>
+</a>
+
+<a class="logo-link" href="autacs.html" onclick="go(this.href);return false;">
+  <span>AUTACS</span>
+</a>
+
+<a class="logo-link" href="iss.html" onclick="go(this.href);return false;">
+  <span>ISS</span>
+</a>
+
+<a class="logo-link" href="weaponized-drone.html" onclick="go(this.href);return false;">
+  <span>Weaponized Drone</span>
+</a>
+
+<a class="logo-link" href="aerobait.html" onclick="go(this.href);return false;">
+  <span>Aerobait</span>
+</a>
+
+    </div>
+
+    <a class="back-btn" href="index.html" onclick="go(this.href);return false;">← Kembali</a>
+
+  </div>
+</div>
+
+<script>
+function go(url){
+  const c=document.getElementById('card');
+  c.classList.add('slide-out');
+  setTimeout(()=>location.href=url,180);
+}
+</script>
+
+</body>
+</html>
