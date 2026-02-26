@@ -1,289 +1,287 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Pusat Pengembangan UAV</title>
+    <meta charset="UTF-8">
+    <title>Pusat Pengembangan UAV</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
+    <style>
 
-@font-face{
-  font-family:'Amuro';
-  src:url('./fonts/Amuro%20Bold%20Italic.otf') format('opentype');
-}
+        @font-face {
+            font-family: 'Amuro';
+            src: url('./fonts/Amuro%20Bold%20Italic.otf') format('opentype');
+        }
 
-:root{
-  --lg-bg-color: rgba(255,255,255,0.30);
-  --lg-border: rgba(255,255,255,0.42);
-  --lg-highlight: rgba(255,255,255,0.95);
+        :root {
+            --lg-bg-color: rgba(255,255,255,0.30);
+            --lg-border: rgba(255,255,255,0.42);
+            --text-black: #000000;
+            --text-grey: #4a4a4a;
+            --autacs-blue: #3666B6;
+        }
 
-  /* 🔑 warna teks hitam */
-  --text-black: #000000;
-    --text-grey:#4a4a4a;
-  --autacs-blue:#3666B6;
-}
+        /* RESET */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-/* ===== RESET ===== */
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
+        body {
+            margin: 0;
+            font-family: 'Inter',sans-serif;
+            color: var(--text-black);
+            font-size: 16px;
+            background-image: url("uav-ui-portrait.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-/* ===== BACKGROUND ===== */
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
+        @media (orientation: landscape) {
+            body {
+                background-image: url("uav-ui-landscape.jpg");
+            }
+        }
 
-  /* 🔑 warna teks global jadi hitam */
-  color: var(--text-black);
+        /* PAGE */
+        .page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 36px 16px;
+        }
 
-  /* ukuran dasar NORMAL */
-  font-size:16px;
+        /* CARD */
+        .card {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 22px;
+            padding: 36px 22px 160px;
+            position: relative;
+            background: linear-gradient( 180deg, rgba(255,255,255,0.32), rgba(255,255,255,0.12) );
+            backdrop-filter: blur(22px) saturate(165%) brightness(1.1);
+            -webkit-backdrop-filter: blur(22px) saturate(165%) brightness(1.1);
+            border: 1px solid rgba(255,255,255,0.48);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.40), inset 0 1px 1px rgba(255,255,255,.70);
+            overflow: hidden;
+            animation: slideIn .3s ease;
+        }
 
-  background-image: url("2.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-}
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
 
-@media (orientation: landscape){
-  body{
-    background-image: url("uav-ui-landscape.jpg");
-  }
-}
+            .header h3 {
+                font-size: 26px;
+                margin: 10px 0 8px;
+                color: var(--text-black);
+            }
 
-/* ===== PAGE LAYOUT ===== */
-.page{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  padding:36px 16px;
-}
+            .header .subtitle {
+                font-size: 22px;
+                color: var(--text-black);
+            }
 
-/* ===== CARD UTAMA (LIQUID GLASS BENING) ===== */
-.card{
-  width:100%;
-  max-width:420px;
-  border-radius:22px;
-  padding:36px 22px 160px;
-  position:relative;
+        .logo-circle {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 16px;
+            background: white;
+        }
 
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.32),
-    rgba(255,255,255,0.12)
-  );
+        .autacs {
+            font-family: 'Amuro',sans-serif;
+            color: var(--autacs-blue);
+            letter-spacing: 2px;
+            font-size: 28px;
+        }
 
-  backdrop-filter: blur(22px) saturate(165%) brightness(1.1);
-  -webkit-backdrop-filter: blur(22px) saturate(165%) brightness(1.1);
+        /* VIDEO */
+        .video-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-  border:1px solid rgba(255,255,255,0.48);
+        .video {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: black;
+            border: 2px solid rgba(0,0,0,0.25);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.30);
+        }
 
-  box-shadow:
-    0 30px 70px rgba(0,0,0,0.40),
-    inset 0 1px 1px rgba(255,255,255,.70);
+            .video iframe {
+                display: block;
+                width: 100%;
+                aspect-ratio: 16/9;
+                border: none;
+            }
 
-  color: var(--text-black);
+        /* ===== PORTRAIT IMAGE STRIP ===== */
+        .slider-wrapper {
+            overflow-x: auto;
+            margin: 15px 0 30px;
+            padding-bottom: 12px;
+            scroll-snap-type: x mandatory;
+        }
 
-  overflow:hidden;
-  animation:slideIn .3s ease;
-}
+        /* Scrollbar Styling */
+        .slider-wrapper::-webkit-scrollbar {
+            height: 8px; 
+        }
 
-/* efek cahaya pada card */
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-40%;
-  background:
-    radial-gradient(
-      circle at 30% 25%,
-      rgba(255,255,255,0.40),
-      transparent 60%
-    );
-  filter: blur(18px);
-  transform:rotate(10deg);
-  pointer-events:none;
-}
+        .slider-wrapper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2); 
+            border-radius: 10px;
+        }
 
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      120deg,
-      transparent 30%,
-      rgba(255,255,255,.15),
-      transparent 70%
-    );
-  opacity:.5;
-  pointer-events:none;
-}
+        .slider-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.25); 
+            border-radius: 10px;
+        }
 
-/* ===== HEADER ===== */
-.header{
-  text-align:center;
-  margin-bottom:28px;
-  color: var(--text-grey);
-  line-height:1.6;
-}
+        .slider-wrapper::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.45); 
+        }
 
-/* 🔑 INI BAGIAN TEKS YANG DIPERBESAR */
-.header h3{
-  font-size:26px;
-  margin:10px 0 8px;
-  color:var(--text-black);
-}
+        .image-slider {
+            display: flex;
+            gap: 0px; 
+        }
 
-.header .subtitle{
-  font-size:22px;
-  color:var(--text-black);
-}
+            .image-slider img {
+                width: 100%;
+                aspect-ratio: 9 / 16; /* Area tampilan tetap portrait 9:16 */
+                height: auto;
+                scroll-snap-align: center;
+                flex-shrink: 0;
+                
+                /* PERUBAHAN KUNCI DI SINI */
+                /* 'contain' memastikan seluruh gambar masuk, tidak ada yang terpotong */
+                object-fit: contain; 
+                
+                border-radius: 0px;
+                background: rgba(0,0,0,0.1); /* Opsional: memberi warna latar jika ada sisa ruang */
+            }
 
-/* logo */
-.logo-circle{
-  width:104px;
-  height:104px;
-  border-radius:50%;
-  object-fit:cover;
-  margin:0 auto 16px;
-  background:white;
-}
+        /* BUTTONS */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
 
-/* ===== AUTACS LOGO TEXT ===== */
-.autacs{
-  font-family:'Amuro',sans-serif;
-  color:var(--autacs-blue); /* 🔑 BIRU FIX */
-  letter-spacing:2px;
-  font-size:28px;
-}
+        .link {
+            height: 54px;
+            border-radius: 999px;
+            background: var(--lg-bg-color);
+            backdrop-filter: blur(12px) saturate(150%);
+            border: 1px solid var(--lg-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: .25s ease;
+            padding: 0 24px;
+        }
 
-/* ===== VIDEO PANEL ===== */
-.video-wrapper{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin-bottom:24px;
-}
+            .link:hover {
+                background: rgba(255,255,255,0.45);
+                transform: translateY(-2px);
+            }
 
-.video{
-  width:100%;
-  max-width:380px;
-  border-radius:20px;
-  overflow:hidden;
-  background:black;
+            .link:active {
+                transform: scale(.96);
+            }
 
-  border:2px solid rgba(0,0,0,0.25);
+        /* ANIMASI */
+        @keyframes slideIn {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
 
-  box-shadow: 0 12px 30px rgba(0,0,0,0.30);
-}
+            to {
+                opacity: 1;
+            }
+        }
 
-.video iframe{
-  display:block;
-  width:100%;
-  aspect-ratio:16/9;
-  border:none;
-}
+        .slide-out {
+            animation: slideOut .2s ease forwards;
+        }
 
-/* ===== LINKS BUTTON ===== */
-.links{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
-.link{
-  height:54px;
-  border-radius:999px;
-
-  background: var(--lg-bg-color);
-
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-
-  border:1px solid var(--lg-border);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  /* teks tombol tetap normal dan abu */
-  color:#000000;
-
-  font-size:16px;
-  font-weight:600;
-  text-decoration:none;
-
-  transition:.25s ease;
-  padding:0 24px;
-}
-
-.link:hover{
-  background: rgba(255,255,255,0.45);
-  transform: translateY(-2px);
-}
-
-.link:active{
-  transform: scale(.96);
-}
-
-
-/* ===== ANIMASI ===== */
-@keyframes slideIn{
-  from{ transform:translateX(30px); opacity:0; }
-  to{ opacity:1; }
-}
-
-.slide-out{
-  animation:slideOut .2s ease forwards;
-}
-
-@keyframes slideOut{
-  to{ transform:translateX(-30px); opacity:0; }
-}
-
-</style>
+        @keyframes slideOut {
+            to {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="page">
-  <div class="card" id="card">
+    <div class="page">
+        <div class="card" id="card">
 
-    <div class="header">
-      <img src="./logo.jpg" class="logo-circle">
-      <h3>Pusat Pengembangan UAV</h3>
+            <div class="header">
+                <img src="./logo.jpg" class="logo-circle">
+                <h3>Pusat Pengembangan UAV</h3>
+                <p class="subtitle">
+                    Powered by <span class="autacs">AUTACS</span>
+                </p>
+            </div>
 
-      <p class="subtitle">
-        Powered by <span class="autacs">AUTACS</span>
-      </p>
+            <div class="video-wrapper">
+                <div class="video">
+                    <iframe src="https://www.youtube.com/embed/CTheLyGWGMY" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="image-slider">
+                    <img src="history0.jpg">
+                    <img src="history1.jpg">
+                    <img src="history2.jpg">
+                    <img src="history3.jpg">
+                    <img src="history4.jpg">
+                    <img src="history5.jpg">
+                    <img src="history6.jpg">
+                </div>
+            </div>
+
+            <div class="links">
+                <a class="link" href="menu-a.html" onclick="go(this.href);return false;">Katalog Produk</a>
+                <a class="link" href="menu-b.html" onclick="go(this.href);return false;">Video Dokumentasi</a>
+            </div>
+
+        </div>
     </div>
 
-    <div class="video-wrapper">
-      <div class="video">
-        <iframe src="https://www.youtube.com/embed/CTheLyGWGMY" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="links">
-      <a class="link" href="menu-a.html" onclick="go(this.href);return false;">Katalog Produk</a>
-      <a class="link" href="menu-b.html" onclick="go(this.href);return false;">Video Dokumentasi</a>
-</div>
-  </div>
-</div>
-
-<script>
-function go(url){
-  const card=document.getElementById('card');
-  card.classList.add('slide-out');
-  setTimeout(()=> location.href=url,200);
-}
-</script>
+    <script>
+        function go(url) {
+            const card = document.getElementById('card');
+            card.classList.add('slide-out');
+            setTimeout(() => location.href = url, 200);
+        }
+    </script>
 
 </body>
 </html>
