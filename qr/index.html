@@ -133,6 +133,7 @@
 
         /* ===== PORTRAIT IMAGE STRIP ===== */
         .slider-wrapper {
+            width: 100%;
             overflow-x: auto;
             margin: 15px 0 30px;
             padding-bottom: 12px;
@@ -158,24 +159,22 @@
             background: rgba(0, 0, 0, 0.45); 
         }
 
+        /* PERBAIKAN DI SINI */
         .image-slider {
             display: flex;
             gap: 0px; 
+            /* width: max-content; -> DIHAPUS agar tidak error layoutnya */
         }
 
             .image-slider img {
-                width: 100%;
-                aspect-ratio: 9 / 16; /* Area tampilan tetap portrait 9:16 */
-                height: auto;
+                flex: 0 0 100%; /* Memastikan gambar ambil lebar 100% dari container (1 layar hp) */
+                width: 100%; 
+                aspect-ratio: 8268 / 11811; /* Rasio asli gambar dipertahankan */
+                height: auto; 
+                
                 scroll-snap-align: center;
-                flex-shrink: 0;
-                
-                /* PERUBAHAN KUNCI DI SINI */
-                /* 'contain' memastikan seluruh gambar masuk, tidak ada yang terpotong */
-                object-fit: contain; 
-                
+                object-fit: fill; /* Menyambungkan gambar dengan sempurna */
                 border-radius: 0px;
-                background: rgba(0,0,0,0.1); /* Opsional: memberi warna latar jika ada sisa ruang */
             }
 
         /* BUTTONS */
