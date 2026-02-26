@@ -131,49 +131,71 @@
                 border: none;
             }
 
+        /* ===== PETUNJUK GESER (UX HINT) ===== */
+        .scroll-hint {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 13px; /* Ukuran teks dirapikan kembali */
+            font-weight: 600;
+            color: #D3001A; /* Tetap selaras dengan identitas warna merah */
+            margin-bottom: 8px;
+            padding-right: 5px;
+            animation: bounceX 1.5s infinite;
+            cursor: default;
+            user-select: none;
+        }
+
+        @keyframes bounceX {
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-5px);
+            }
+        }
+
         /* ===== PORTRAIT IMAGE STRIP ===== */
         .slider-wrapper {
             width: 100%;
             overflow-x: auto;
-            margin: 15px 0 30px;
+            margin: 0 0 30px;
             padding-bottom: 12px;
             scroll-snap-type: x mandatory;
         }
 
-        /* Scrollbar Styling */
-        .slider-wrapper::-webkit-scrollbar {
-            height: 8px; 
-        }
+            /* Scrollbar Styling Merah */
+            .slider-wrapper::-webkit-scrollbar {
+                height: 8px;
+            }
 
-        .slider-wrapper::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.2); 
-            border-radius: 10px;
-        }
+            .slider-wrapper::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+            }
 
-        .slider-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.25); 
-            border-radius: 10px;
-        }
+            .slider-wrapper::-webkit-scrollbar-thumb {
+                background: #D3001A;
+                border-radius: 10px;
+            }
 
-        .slider-wrapper::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.45); 
-        }
+                .slider-wrapper::-webkit-scrollbar-thumb:hover {
+                    background: #a30014;
+                }
 
-        /* PERBAIKAN DI SINI */
         .image-slider {
             display: flex;
-            gap: 0px; 
-            /* width: max-content; -> DIHAPUS agar tidak error layoutnya */
+            gap: 0px;
         }
 
             .image-slider img {
-                flex: 0 0 100%; /* Memastikan gambar ambil lebar 100% dari container (1 layar hp) */
-                width: 100%; 
-                aspect-ratio: 8268 / 11811; /* Rasio asli gambar dipertahankan */
-                height: auto; 
-                
+                flex: 0 0 100%;
+                width: 100%;
+                aspect-ratio: 8268 / 11811;
+                height: auto;
                 scroll-snap-align: center;
-                object-fit: fill; /* Menyambungkan gambar dengan sempurna */
+                object-fit: fill;
                 border-radius: 0px;
             }
 
@@ -253,6 +275,8 @@
                     <iframe src="https://www.youtube.com/embed/CTheLyGWGMY" allowfullscreen></iframe>
                 </div>
             </div>
+
+            <div class="scroll-hint">Geser di bawah gambar untuk melihat perjalanan UAV ➡️</div>
 
             <div class="slider-wrapper">
                 <div class="image-slider">
