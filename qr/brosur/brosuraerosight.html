@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>AEROSIGHT - Katalog Produk</title>
 
@@ -20,7 +20,24 @@
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
+/* ===== BACKGROUND PORTRAIT ===== */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
 
+  background-image: url("uav-ui-portrait.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* jika landscape ganti gambar */
+@media (orientation: landscape){
+  body{
+    background-image: url("uav-ui-landscape.jpg");
+  }
+}
         @media (orientation: landscape) {
             body {
                 background-image: url("uav-ui-landscape.jpg");
