@@ -1,248 +1,779 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>Video Dokumentasi Produk</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet">
+
 
 <style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
 :root{
+
   --lg-bg-color: rgba(255,255,255,0.32);
   --lg-border: rgba(255,255,255,0.40);
   --lg-highlight: rgba(255,255,255,0.90);
-  --text-black: #000000;
+
+  --text-black:#000000;
+
 }
 
-/* ===== RESET ===== */
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
+
   box-sizing:border-box;
+
   -webkit-tap-highlight-color:transparent;
+
 }
 
-/* ===== BACKGROUND ===== */
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
 body{
+
   margin:0;
+
   font-family:'Inter',sans-serif;
+
   background-image:url("uav-ui-portrait.jpg");
+
   background-repeat:no-repeat;
+
   background-size:cover;
+
   background-position:center;
+
   background-attachment:fixed;
+
 }
 
-@media (orientation: landscape){
+
+/* =====================================================
+   LANDSCAPE
+===================================================== */
+
+@media (orientation:landscape){
+
   body{
+
     background-image:url("uav-ui-landscape.jpg");
+
   }
+
 }
 
-/* ===== PAGE ===== */
+
+/* =====================================================
+   PAGE
+===================================================== */
+
 .page{
+
   min-height:100vh;
+
   display:flex;
+
   justify-content:center;
+
   padding:28px 16px;
+
 }
 
-/* ===== CARD ===== */
+
+/* =====================================================
+   CARD
+===================================================== */
+
 .card{
+
   width:100%;
+
   max-width:420px;
+
   border-radius:22px;
+
   padding:22px 18px 120px;
+
   position:relative;
 
   background:linear-gradient(
+
     180deg,
+
     rgba(255,255,255,0.28),
+
     rgba(255,255,255,0.10)
+
   );
 
   backdrop-filter:blur(20px) saturate(160%);
+
   -webkit-backdrop-filter:blur(20px) saturate(160%);
 
   border:1px solid rgba(255,255,255,0.45);
 
   box-shadow:
+
     0 30px 70px rgba(0,0,0,0.40),
+
     inset 0 1px 1px rgba(255,255,255,.70);
 
   overflow:hidden;
+
   animation:slideIn .25s ease;
+
 }
 
-/* ===== HERO ===== */
+
+/* =====================================================
+   CARD LIGHT
+===================================================== */
+
+.card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:-40%;
+
+  background:
+
+    radial-gradient(
+
+      circle at 30% 25%,
+
+      rgba(255,255,255,0.40),
+
+      transparent 60%
+
+    );
+
+  filter:blur(18px);
+
+  transform:rotate(10deg);
+
+  pointer-events:none;
+
+}
+
+
+.card::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+    linear-gradient(
+
+      120deg,
+
+      transparent 30%,
+
+      rgba(255,255,255,.15),
+
+      transparent 70%
+
+    );
+
+  opacity:.5;
+
+  pointer-events:none;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
 .hero{
+
   height:190px;
+
   border-radius:18px;
+
   margin-bottom:20px;
+
   background:url("2.jpg") center/cover no-repeat;
+
 }
 
-/* ===== BREADCRUMB ===== */
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
 .breadcrumb-bar{
+
   width:100%;
+
   margin-bottom:20px;
+
   display:flex;
+
   justify-content:center;
+
 }
+
 
 .breadcrumb-long{
+
+  display:inline-block;
+
   width:100%;
+
   max-width:380px;
+
   padding:12px 24px;
+
   border-radius:999px;
+
   background:rgba(255,255,255,0.90);
+
   backdrop-filter:blur(12px) saturate(170%);
+
+  -webkit-backdrop-filter:blur(12px) saturate(170%);
+
   border:1px solid var(--lg-border);
-  box-shadow:0 10px 32px rgba(0,0,0,.22);
+
+  box-shadow:
+
+    0 10px 32px rgba(0,0,0,.22);
+
+  color:var(--text-black);
+
   font-size:15px;
+
   font-weight:600;
+
   text-align:center;
+
 }
+
 
 .breadcrumb-long a{
-  color:#000 !important;
+
+  color:#000000 !important;
+
   text-decoration:none;
+
 }
 
-/* ===== MENU TEXT ===== */
+
+/* =====================================================
+   LINKS
+===================================================== */
+
 .links{
+
   display:flex;
+
   flex-direction:column;
+
   gap:18px;
+
 }
 
-/* 🔒 BAGIAN INI YANG DI-UPDATE AGAR AMAN DI ZOOM/HP KECIL */
-.logo-link{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  
-  /* Ganti height mati menjadi min-height agar elastis */
-  min-height:72px; 
-  height: auto; 
-  
-  /* Tambah padding kiri kanan agar teks tidak mentok pinggir */
-  padding: 12px 24px; 
 
-  border-radius:999px; /* Bentuk kapsul tetap terjaga */
+/* =====================================================
+   MENU BUTTON
+===================================================== */
+
+.logo-link{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:100%;
+
+  height:72px;
+
+  padding:0 18px;
+
+  border-radius:999px;
+
   background:rgba(255,255,255,.30);
 
   backdrop-filter:blur(16px) saturate(160%);
+
   -webkit-backdrop-filter:blur(16px) saturate(160%);
 
   border:1px solid rgba(255,255,255,.55);
 
   box-shadow:
+
     inset 0 1px 1px rgba(255,255,255,.7),
+
     0 10px 26px rgba(0,0,0,.25);
 
   text-decoration:none;
+
+  cursor:pointer;
+
   transition:.25s ease;
+
 }
+
+
+/* =====================================================
+   LOGO IMAGE
+===================================================== */
+
+.logo-link img{
+
+  display:block;
+
+  width:auto;
+
+  height:auto;
+
+  max-width:180px;
+
+  max-height:145px;
+
+  object-fit:contain;
+
+}
+
+
+/* =====================================================
+   TEXT MENU
+===================================================== */
 
 .logo-link span{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:100%;
+
+  height:100%;
+
+  padding:0 10px;
+
   font-size:16px;
+
   font-weight:600;
-  color:#000;
-  letter-spacing:0.3px;
-  
-  /* Pastikan teks rata tengah jika turun baris */
-  text-align: center;
-  line-height: 1.3;
-  width: 100%;
+
+  color:#000000;
+
+  letter-spacing:.3px;
+
+  text-align:center;
+
+  line-height:1.2;
+
 }
 
-/* ===== BACK BUTTON ===== */
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.logo-link:hover{
+
+  transform:translateY(-2px);
+
+  background:rgba(255,255,255,.40);
+
+  box-shadow:
+
+    inset 0 1px 1px rgba(255,255,255,.8),
+
+    0 14px 30px rgba(0,0,0,.28);
+
+}
+
+
+/* =====================================================
+   ACTIVE / CLICK
+===================================================== */
+
+.logo-link:active{
+
+  transform:scale(.98);
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
 .back-btn{
+
   position:absolute;
+
   left:18px;
-  bottom:22px;
+
+  bottom:calc(22px + env(safe-area-inset-bottom));
+
   padding:10px 20px;
+
+  height:auto;
+
   border-radius:999px;
 
   background:var(--lg-bg-color);
+
   backdrop-filter:blur(12px);
 
+  -webkit-backdrop-filter:blur(12px);
+
   border:1px solid var(--lg-border);
+
   box-shadow:
+
     0 6px 14px rgba(0,0,0,.25),
+
     inset 1px 1px 0 var(--lg-highlight);
 
-  color:#000 !important;
-  font-weight:600;
+  color:#000000 !important;
+
   text-decoration:none;
+
+  font-weight:600;
+
+  cursor:pointer;
+
 }
 
-/* ===== ANIMATION ===== */
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
 @keyframes slideIn{
-  from{ transform:translateX(20px); opacity:0; }
-  to{ transform:translateX(0); opacity:1; }
+
+  from{
+
+    transform:translateX(20px);
+
+    opacity:0;
+
+  }
+
+  to{
+
+    transform:translateX(0);
+
+    opacity:1;
+
+  }
+
 }
+
 
 @keyframes slideOut{
-  to{ transform:translateX(-20px); opacity:0; }
+
+  to{
+
+    transform:translateX(-20px);
+
+    opacity:0;
+
+  }
+
 }
 
+
 .slide-out{
+
   animation:slideOut .2s ease forwards;
+
 }
+
+
+/* =====================================================
+   SMALL SCREEN
+===================================================== */
+
+@media (max-width:380px){
+
+  .page{
+
+    padding:20px 12px;
+
+  }
+
+  .card{
+
+    padding:18px 14px 110px;
+
+  }
+
+  .hero{
+
+    height:170px;
+
+  }
+
+  .logo-link{
+
+    height:72px;
+
+  }
+
+  .logo-link img{
+
+    max-width:160px;
+
+    max-height:54px;
+
+  }
+
+  .logo-link span{
+
+    font-size:15px;
+
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media (max-width:320px){
+
+  .logo-link{
+
+    height:68px;
+
+  }
+
+  .logo-link img{
+
+    max-width:145px;
+
+    max-height:50px;
+
+  }
+
+  .logo-link span{
+
+    font-size:14px;
+
+  }
+
+}
+
+
+/* =====================================================
+   SAFE AREA
+===================================================== */
+
+@supports (padding:env(safe-area-inset-bottom)){
+
+  .page{
+
+    padding-bottom:
+
+      calc(28px + env(safe-area-inset-bottom));
+
+  }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="page">
+
+
   <div class="card" id="card">
 
+
+    <!-- =================================================
+         BREADCRUMB
+    ================================================== -->
+
     <div class="breadcrumb-bar">
+
       <div class="breadcrumb-long">
-        <a href="index.html" onclick="go(this.href);return false;">Home</a> › Video Dokumentasi Produk
+
+        <a href="index.html"
+           onclick="go(this.href);return false;">
+
+          Home
+
+        </a>
+
+        › Video Dokumentasi Produk
+
       </div>
+
     </div>
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
 
     <div class="hero"></div>
 
+
+    <!-- =================================================
+         MENU
+    ================================================== -->
+
     <div class="links">
-        <a class="logo-link" href="alur-proses-pengembangan-mission-system.html" onclick="go(this.href);return false;">
-          <span>Alur Proses Pengembangan Mission System</span>
-        </a>
 
-        <a class="logo-link" href="autacs.html" onclick="go(this.href);return false;">
-          <span>AUTACS</span>
-        </a>
 
-        <a class="logo-link" href="iss.html" onclick="go(this.href);return false;">
-          <span>Aerosight</span>
-        </a>
+      <!-- ALUR PROSES -->
 
-        <a class="logo-link" href="weaponized-drone.html" onclick="go(this.href);return false;">
-          <span>Weaponized Drone</span>
-        </a>
+      <a class="logo-link"
+         href="alur-proses-pengembangan-mission-system.html"
+         onclick="go(this.href);return false;">
 
-        <a class="logo-link" href="aerobait.html" onclick="go(this.href);return false;">
-          <span>Aerobait</span>
-        </a>
-         <a class="logo-link" href="aerosight.html" onclick="go(this.href);return false;">
-          <span>Kamikaze Drone</span>
-          </a>
+        <span>
+          Alur Proses Pengembangan Mission System
+        </span>
+
+      </a>
+
+
+      <!-- AUTACS -->
+
+      <a class="logo-link"
+         href="autacs.html"
+         onclick="go(this.href);return false;">
+
+        <img
+          src="autacs.jpg"
+          alt="AUTACS">
+
+      </a>
+
+
+      <!-- AEROSIGHT -->
+
+      <a class="logo-link"
+         href="iss.html"
+         onclick="go(this.href);return false;">
+
+        <img
+          src="AEROSIGHT.png"
+          alt="AEROSIGHT_FW-D9">
+
+      </a>
+
+
+      <!-- AEROBAIT -->
+
+      <a class="logo-link"
+         href="aerobait.html"
+         onclick="go(this.href);return false;">
+
+        <img
+          src="AEROBAIT.png"
+          alt="AEROBAIT_LTD-170">
+
+      </a>
+
+
+      <!-- AEROSTRIKE -->
+
+      <a class="logo-link"
+         href="weaponized-drone.html"
+         onclick="go(this.href);return false;">
+
+        <img
+          src="AEROSTRIKE.png"
+          alt="AEROSTRIKE_H-900">
+
+      </a>
+
+
+      <!-- SWARMING KAMIKAZE -->
+
+      <a class="logo-link"
+         href="aerosight.html"
+         onclick="go(this.href);return false;">
+
+        <img
+          src="SWARMINGKAMIKAZE.png"
+          alt="SWARMING-KAMIKAZE">
+
+      </a>
+
+
     </div>
 
-    <a class="back-btn" href="index.html" onclick="go(this.href);return false;">← Kembali</a>
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <a class="back-btn"
+       href="index.html"
+       onclick="go(this.href);return false;">
+
+      ← Kembali
+
+    </a>
+
 
   </div>
+
 </div>
-<!-- INI BARU DIUPDATE-->
+
+
 <script>
+
 function go(url){
-  const c=document.getElementById('card');
+
+  const c = document.getElementById('card');
+
   c.classList.add('slide-out');
-  setTimeout(()=>location.href=url,180);
+
+  setTimeout(() => {
+
+    location.href = url;
+
+  },180);
+
 }
+
 </script>
 
+
 </body>
+
 </html>
