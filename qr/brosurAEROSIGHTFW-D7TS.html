@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AEROSIGHT FW-D7TS - Katalog Produk</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <style>
+        :root {
+            --lg-bg-color: rgba(255,255,255,0.32);
+            --lg-border: rgba(255,255,255,0.40);
+            --lg-highlight: rgba(255,255,255,0.90);
+            --text-black: #000000;
+            --KUMBANG-blue: #0056b3; /* Menambahkan warna default jika belum ada */
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+/* ===== BACKGROUND PORTRAIT ===== */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+
+  background-image: url("uav-ui-portrait.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* jika landscape ganti gambar */
+@media (orientation: landscape){
+  body{
+    background-image: url("uav-ui-landscape.jpg");
+  }
+}
+        @media (orientation: landscape) {
+            body {
+                background-image: url("uav-ui-landscape.jpg");
+            }
+        }
+
+        a, a:visited, a:hover, a:active {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 28px 16px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 22px;
+            padding: 22px 18px 140px;
+            position: relative;
+            background: linear-gradient( 180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.10) );
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.45);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.40), inset 0 1px 1px rgba(255,255,255,.70);
+            overflow: hidden;
+            animation: slideIn .25s ease;
+        }
+
+        .breadcrumb-bar {
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .breadcrumb-long {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.90);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--lg-border);
+            box-shadow: 0 10px 32px rgba(0,0,0,.22);
+            color: var(--text-black);
+            font-size: 15px;
+            font-weight: 600;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 210px;
+            border-radius: 18px;
+            border: none;
+        }
+
+        /* --- TAMBAHAN CSS UNTUK GAMBAR HERO --- */
+        .hero {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .hero img {
+                width: 100%; /* Membuat gambar menyesuaikan lebar card */
+                height: auto; /* Menjaga rasio asli gambar */
+                border-radius: 18px; /* Menyesuaikan style membulat pada desain */
+                box-shadow: 0 10px 24px rgba(0,0,0,.2);
+                display: block;
+            }
+        /* -------------------------------------- */
+
+        /* DESKRIPSI */
+        .desc-panel {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border: 1px solid var(--lg-border);
+            box-shadow: 0 10px 24px rgba(0,0,0,.2);
+            font-size: 15px;
+            line-height: 1.65;
+            color: #000;
+        }
+
+            .desc-panel p {
+                margin: 0 0 14px;
+                text-align: justify;
+            }
+
+        /* 🔑 AEROBAIT INLINE TEXT */
+        .AEROBAIT-inline {
+            font-weight: 800;
+            color: var(--KUMBANG-blue);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 18px;
+            bottom: 22px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: var(--lg-bg-color);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--lg-border);
+            box-shadow: 0 6px 14px rgba(0,0,0,.25), inset 1px 1px 0 var(--lg-highlight);
+            color: #000000 !important;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .KUMBANG-inline {
+            max-width: 140px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            to {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+        }
+
+        .slide-out {
+            animation: slideOut .2s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="card" id="card">
+
+            <div class="breadcrumb-bar">
+                <div class="breadcrumb-long">
+                    <a href="index.html" onclick="go(this.href);return false;">Home</a> ›
+                    <a href="menu-a.html" onclick="go(this.href);return false;">Katalog Produk</a> ›
+                    <b>AEROSIGHT FW-D7TS</b>
+                </div>
+            </div>
+
+            <div class="hero">
+                <img src="brosur/AEROSIGHTFW-D7TS.jpg" alt="Brosur AEROSIGHT FW-D7TS">
+            </div>
+
+            <a class="back-btn" href="menu-a.html" onclick="go(this.href);return false;">← Kembali</a>
+
+        </div>
+    </div>
+
+    <script>
+        function go(url) {
+            const c = document.getElementById('card');
+            c.classList.add('slide-out');
+            setTimeout(() => location.href = url, 180);
+        }
+    </script>
+
+</body>
+</html>
