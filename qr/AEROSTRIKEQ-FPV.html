@@ -1,245 +1,418 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>AEROSTRIKE Q-FPV - Video Dokumentasi Produk</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>AEROSTRIKE Q-FPV - Video Dokumentasi Produk</title>
 
-<style>
-:root{
-  --lg-bg-color: rgba(255,255,255,0.32);
-  --lg-border: rgba(255,255,255,0.40);
-  --lg-highlight: rgba(255,255,255,0.90);
-  --text-black: #000000;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
 
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
+  <style>
+    :root{
+      --lg-bg-color: rgba(255,255,255,0.32);
+      --lg-border: rgba(255,255,255,0.40);
+      --lg-highlight: rgba(255,255,255,0.90);
+      --text-black: #000000;
+    }
 
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
+    *{
+      box-sizing:border-box;
+      -webkit-tap-highlight-color:transparent;
+    }
 
-  background-image:url("uav-ui-portrait.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
 
-@media (orientation: landscape){
-  body{
-    background-image:url("uav-ui-landscape.jpg");
-  }
-}
-a, a:visited, a:hover, a:active{
-  color: #000000;
-  text-decoration: none;
-}
-.page{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  padding:28px 16px;
-}
+      background-image:url("uav-ui-portrait.jpg");
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
 
-.card{
-  width:100%;
-  max-width:420px;
-  border-radius:22px;
-  padding:22px 18px 140px;
-  position:relative;
+    @media (orientation: landscape){
+      body{
+        background-image:url("uav-ui-landscape.jpg");
+      }
+    }
 
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.28),
-    rgba(255,255,255,0.10)
-  );
+    a,
+    a:visited,
+    a:hover,
+    a:active{
+      color:#000000;
+      text-decoration:none;
+    }
 
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
+    .page{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding:28px 16px;
+    }
 
-  border:1px solid rgba(255,255,255,0.45);
+    .card{
+      width:100%;
+      max-width:420px;
 
-  box-shadow:
-    0 30px 70px rgba(0,0,0,0.40),
-    inset 0 1px 1px rgba(255,255,255,.70);
+      border-radius:22px;
+      padding:22px 18px 140px;
 
-  overflow:hidden;
-  animation:slideIn .25s ease;
-}
+      position:relative;
 
-.breadcrumb-bar{
-  width:100%;
-  margin-bottom:20px;
-  display:flex;
-  justify-content:center;
-}
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,0.28),
+        rgba(255,255,255,0.10)
+      );
 
-.breadcrumb-long{
-  display:inline-block;
-  padding:12px 24px;
-  border-radius:999px;
+      backdrop-filter:blur(20px) saturate(160%);
+      -webkit-backdrop-filter:blur(20px) saturate(160%);
 
-  background:rgba(255,255,255,0.90);
-  backdrop-filter:blur(12px);
-  border:1px solid var(--lg-border);
+      border:1px solid rgba(255,255,255,0.45);
 
-  box-shadow:0 10px 32px rgba(0,0,0,.22);
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.40),
+        inset 0 1px 1px rgba(255,255,255,.70);
 
-  color:var(--text-black);
+      overflow:hidden;
 
-  font-size:15px;
-  font-weight:600;
+      animation:slideIn .25s ease;
+    }
 
-  width:100%;
-  max-width:380px;
-  text-align:center;
-}
+    /* ================================
+       HEADER AEROSTRIKE Q-FPV
+       ================================ */
 
-.video-area{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
+    .hero{
+      width:100%;
+      aspect-ratio:16 / 9;
 
-.video-card{
-  border-radius:18px;
-  background:#2f2f2f;
-  padding:12px;
-  box-shadow:0 10px 26px rgba(0,0,0,.25);
-}
+      border-radius:18px;
+      margin-bottom:20px;
 
-iframe{
-  width:100%;
-  height:210px;
-  border-radius:18px;
-  border:none;
-}
+      background:url("headerAEROSTRIKEQ-FPV.jpg")
+        center/cover
+        no-repeat;
 
-/* DESKRIPSI */
-.desc-panel{
-  margin-top:18px;
-  padding:16px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(16px) saturate(160%);
-  -webkit-backdrop-filter:blur(16px) saturate(160%);
-  border:1px solid var(--lg-border);
-  box-shadow:0 10px 24px rgba(0,0,0,.2);
-  font-size:15px;
-  line-height:1.65;
-  color:#000;
-}
+      overflow:hidden;
+    }
 
-.desc-panel p{
-  margin:0 0 14px;
-  text-align:justify;
-}
+    /* ================================
+       BREADCRUMB
+       ================================ */
 
-/* 🔑 Portofolio Pengembangan Drone INLINE TEXT */
-.Portofolio Pengembangan Drone-inline{
-  font-weight:800;
-  color:var(--KUMBANG-blue);
-  letter-spacing:0.5px;
-  white-space:nowrap;
-}
-.back-btn{
-  position:absolute;
-  left:18px;
-  bottom:22px;
+    .breadcrumb-bar{
+      width:100%;
+      margin-bottom:20px;
 
-  padding:10px 20px;
+      display:flex;
+      justify-content:center;
+    }
 
-  border-radius:999px;
-  background:var(--lg-bg-color);
+    .breadcrumb-long{
+      display:inline-block;
 
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+      padding:12px 24px;
+      border-radius:999px;
 
-  border:1px solid var(--lg-border);
+      background:rgba(255,255,255,0.90);
 
-  box-shadow:
-    0 6px 14px rgba(0,0,0,.25),
-    inset 1px 1px 0 var(--lg-highlight);
+      backdrop-filter:blur(12px);
 
-  color:#000000 !important;
+      border:1px solid var(--lg-border);
 
-  text-decoration:none;
-  font-weight:600;
-  cursor:pointer;
-}
-.Portofolio Pengembangan Drone-inline{
-  max-width:140px;
-  vertical-align:middle;
-  margin-right:10px;
-}
-@keyframes slideIn{
-  from{ transform:translateX(20px); opacity:0; }
-  to{ transform:translateX(0); opacity:1; }
-}
+      box-shadow:0 10px 32px rgba(0,0,0,.22);
 
-@keyframes slideOut{
-  to{ transform:translateX(-20px); opacity:0; }
-}
+      color:var(--text-black);
 
-.slide-out{
-  animation:slideOut .2s ease forwards;
-}
-</style>
+      font-size:15px;
+      font-weight:600;
+
+      width:100%;
+      max-width:380px;
+
+      text-align:center;
+    }
+
+    /* ================================
+       VIDEO
+       ================================ */
+
+    .video-area{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .video-card{
+      border-radius:18px;
+
+      background:#2f2f2f;
+
+      padding:12px;
+
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+    }
+
+    iframe{
+      width:100%;
+      height:210px;
+
+      border-radius:18px;
+      border:none;
+    }
+
+    /* ================================
+       DESKRIPSI
+       ================================ */
+
+    .desc-panel{
+      margin-top:18px;
+      padding:16px;
+
+      border-radius:18px;
+
+      background:rgba(255,255,255,0.35);
+
+      backdrop-filter:blur(16px) saturate(160%);
+      -webkit-backdrop-filter:blur(16px) saturate(160%);
+
+      border:1px solid var(--lg-border);
+
+      box-shadow:0 10px 24px rgba(0,0,0,.2);
+
+      font-size:15px;
+      line-height:1.65;
+
+      color:#000;
+    }
+
+    .desc-panel p{
+      margin:0 0 14px;
+      text-align:justify;
+    }
+
+    /* ================================
+       PORTOFOLIO INLINE TEXT
+       ================================ */
+
+    .Portofolio-Pengembangan-Drone-inline{
+      font-weight:800;
+      letter-spacing:0.5px;
+      white-space:nowrap;
+    }
+
+    /* ================================
+       BACK BUTTON
+       ================================ */
+
+    .back-btn{
+      position:absolute;
+
+      left:18px;
+      bottom:22px;
+
+      padding:10px 20px;
+
+      border-radius:999px;
+
+      background:var(--lg-bg-color);
+
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+      border:1px solid var(--lg-border);
+
+      box-shadow:
+        0 6px 14px rgba(0,0,0,.25),
+        inset 1px 1px 0 var(--lg-highlight);
+
+      color:#000000 !important;
+
+      text-decoration:none;
+
+      font-weight:600;
+
+      cursor:pointer;
+    }
+
+    /* ================================
+       ANIMATION
+       ================================ */
+
+    @keyframes slideIn{
+      from{
+        transform:translateX(20px);
+        opacity:0;
+      }
+
+      to{
+        transform:translateX(0);
+        opacity:1;
+      }
+    }
+
+    @keyframes slideOut{
+      to{
+        transform:translateX(-20px);
+        opacity:0;
+      }
+    }
+
+    .slide-out{
+      animation:slideOut .2s ease forwards;
+    }
+
+  </style>
 </head>
 
 <body>
 
-<div class="page">
-  <div class="card" id="card">
+  <div class="page">
 
-    <div class="breadcrumb-bar">
-      <div class="breadcrumb-long">
-        <a href="index.html" onclick="go(this.href);return false;">Home</a> › 
-        <a href="menu-b.html" onclick="go(this.href);return false;">Video Dokumentasi Produk</a> › 
-        <b>AEROSTRIKE Q-FPV</b>
+    <div class="card" id="card">
+
+      <!-- ================================
+           BREADCRUMB
+           ================================ -->
+
+      <div class="breadcrumb-bar">
+
+        <div class="breadcrumb-long">
+
+          <a
+            href="index.html"
+            onclick="go(this.href);return false;"
+          >
+            Home
+          </a>
+
+          ›&nbsp;
+
+          <a
+            href="menu-b.html"
+            onclick="go(this.href);return false;"
+          >
+            Video Dokumentasi Produk
+          </a>
+
+          ›&nbsp;
+
+          <b>AEROSTRIKE Q-FPV</b>
+
+        </div>
+
       </div>
-    </div>
 
-    <div class="hero"></div>
 
-    <div class="video-area">
+      <!-- ================================
+           HEADER
+           ================================ -->
 
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/4Qtb0CXgEz4" allowfullscreen></iframe>
+      <div class="hero"></div>
+
+
+      <!-- ================================
+           VIDEO
+           ================================ -->
+
+      <div class="video-area">
+
+        <div class="video-card">
+
+          <iframe
+            src="https://www.youtube.com/embed/4Qtb0CXgEz4"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
       </div>
-    
+
+
+      <!-- ================================
+           DESKRIPSI
+           ================================ -->
+
+      <div class="desc-panel">
+
+        <!-- English -->
+
+        <p>
+          <b>AEROSTRIKE Q-FPV</b>
+          <em>
+            is an Unmanned Aerial Vehicle designed for specialized
+            short-range aerial missions. Featuring a carbon-composite
+            frame and a Quad 7–8 inch configuration, it provides a
+            lightweight platform with automatic vertical take-off and
+            landing capability. The Q-FPV supports up to 0.5 kg of
+            payload and incorporates AI and target-lock capability,
+            with swarming capability as specified for its mission
+            configuration.
+          </em>
+        </p>
+
+
+        <!-- Indonesian -->
+
+        <p>
+          <b>AEROSTRIKE Q-FPV</b>
+          adalah pesawat tanpa awak (UAV) yang dirancang untuk misi
+          udara jarak pendek yang bersifat khusus. Menggunakan rangka
+          berbahan komposit karbon dan konfigurasi Quad dengan ukuran
+          7–8 inci, UAV ini menyediakan platform yang ringan dengan
+          kemampuan lepas landas dan mendarat secara vertikal otomatis.
+          Q-FPV mampu membawa muatan (payload) hingga 0,5 kg serta
+          dilengkapi dengan kemampuan AI dan target lock, dengan
+          kemampuan swarming sesuai dengan konfigurasi misi yang
+          ditentukan.
+        </p>
+
+      </div>
+
+
+      <!-- ================================
+           BACK BUTTON
+           ================================ -->
+
+      <a
+        class="back-btn"
+        href="menu-b.html"
+        onclick="go(this.href);return false;"
+      >
+        ← Kembali
+      </a>
+
     </div>
-
-<div class="desc-panel">
-
-      <p>
-      <b><em> AEROSTRIKE Q-FPV is an Unmanned Aerial Vehicle designed for specialized short-range aerial missions. Featuring a carbon-composite frame and a Quad 7–8 inch configuration, it provides a lightweight platform with automatic vertical take-off and landing capability. The Q-FPV supports up to 0.5 kg of payload and incorporates AI and target-lock capability, with swarming capability as specified for its mission configuration.</em>
-
-      <p>
-      <b> AEROSTRIKE Q-FPV adalah pesawat tanpa awak (UAV) yang dirancang untuk misi udara jarak pendek yang bersifat khusus. Menggunakan rangka berbahan komposit karbon dan konfigurasi Quad dengan ukuran 7–8 inci, UAV ini menyediakan platform yang ringan dengan kemampuan lepas landas dan mendarat secara vertikal otomatis. Q-FPV mampu membawa muatan (payload) hingga 0,5 kg serta dilengkapi dengan kemampuan AI dan target lock, dengan kemampuan swarming sesuai dengan konfigurasi misi yang ditentukan.</p>
-
-    </div>
-
-    <a class="back-btn" href="menu-b.html" onclick="go(this.href);return false;">← Kembali</a>
 
   </div>
-</div>
 
-</div>
 
-<script>
-function go(url){
-  const c = document.getElementById('card');
-  c.classList.add('slide-out');
-  setTimeout(()=> location.href=url,180);
-}
-</script>
+  <!-- ================================
+       JAVASCRIPT
+       ================================ -->
+
+  <script>
+
+    function go(url){
+
+      const c = document.getElementById('card');
+
+      c.classList.add('slide-out');
+
+      setTimeout(() => {
+        location.href = url;
+      }, 180);
+
+    }
+
+  </script>
 
 </body>
 </html>
